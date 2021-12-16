@@ -21,7 +21,7 @@ const headerStyle = {
     top: "0",
     padding: "10px",
     boxShadow: "0 0 10px 0 rgba(0, 0, 0, 0.3)",
-    zIndex:"1",
+    zIndex:"5",
     borderRadius:"0px 0px 5px 5px"
 }
 
