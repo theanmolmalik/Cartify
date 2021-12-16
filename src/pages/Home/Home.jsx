@@ -37,7 +37,7 @@ function Home(){
 
             <div style={head2Style}>
                 <h2 style={{color:"#DB3F40"}}>End Of The Year </h2>
-                <h1 style={{letterSpacing:"3.5vh"}}>EXLUSIVE</h1>
+                <h1 style={{letterSpacing:"3vh"}}>EXLUSIVE</h1>
                 <h1>50% - 80% OFF</h1>
             </div>
 
