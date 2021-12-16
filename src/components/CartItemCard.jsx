@@ -3,33 +3,31 @@ import React from "react";
 const cardStyle = {
     display: "flex",
     alignItems: "center",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
     textAlign: "center",
-    padding: "5vh",
-    width: "170vh",
-    borderRadius:"25px",
-    border: "2px",
-    borderColor: "#28282B",
-    borderStyle: "dashed",
-    margin:"5vh auto 5vh auto"
+    padding: "2vh",
+}
+
+const buttonStyle = {
+    margin:"2vh",
+    height:"30px",
+    width:"50px"
 }
 
 function CartItemCard(parameter)
 {
     return (
-        <div style={cardStyle}>
-            <img style={{width:"20%",height:"auto",borderRadius:"25px"}}src={parameter.img} alt="avatarImage"/>
-            <div>
-                <span>{parameter.name}</span>
-                <div>{parameter.price}</div>
-            </div>
-            
+            <div style={cardStyle}>
+            <img style={{width:"10%",height:"auto",borderRadius:"3px"}}src={parameter.img} alt="avatarImage"/>
+            <div>{parameter.name}</div>
+            <div>{parameter.price}</div>
             <div>     
-                <span><button>+</button></span>
+                <span><button style={buttonStyle}>+</button></span>
                 <span>{parameter.quantity}</span>
-                <span><button>-</button></span>
+                <span><button style={buttonStyle}>-</button></span>
             </div>
-        </div>
+            </div>
+
     );
 }
 
