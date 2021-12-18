@@ -5,7 +5,8 @@ const cardStyle = {
     alignItems: "center",
     justifyContent: "space-between",
     textAlign: "center",
-    padding: "2vh"
+    padding: "2vh",
+    fontSize:"20px"
 }
 
 const buttonStyle = {
@@ -14,11 +15,18 @@ const buttonStyle = {
     width:"50px"
 }
 
+const imgStyle = {
+    boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+    width:"10%",
+    height:"auto",
+    borderRadius:"15px"
+}
+
 function CartItemCard(parameter)
 {
     return (
             <div style={cardStyle}>
-            <img style={{width:"10%",height:"auto",borderRadius:"15px"}}src={parameter.img} alt="avatarImage"/>
+            <img style={imgStyle}src={parameter.img} alt="avatarImage"/>
             <div>{parameter.name}</div>
             <div>{parameter.price}</div>
             <div>     
