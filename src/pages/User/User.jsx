@@ -1,7 +1,5 @@
 import React,{useState} from "react";
 import {GoogleLogin,GoogleLogout} from 'react-google-login';
-import {AiOutlineMail} from "react-icons/ai";
-import {AiOutlineUser} from "react-icons/ai";
 
 const cardStyle = {
     display: "flex",
@@ -30,17 +28,14 @@ const imgStyle = {
     display:"flex",
     alignItems:"center",
     justifyContent:"center",
-    borderRadius:"50%"
+    borderRadius:"50%",
+    width:"50%",
+    height:"auto"
 }
 
 const descriptionText = {
-    color:"#28282B",
-    fontSize:"20px",
-    padding:"2vh",
-    margin:"2vh",
-    backgroundColor:"white",
-    borderRadius:"10px"
-
+    color:"white",
+    fontSize:"xx-large"
 }
 
 const clientId = "1074729844749-32k3i3marl59q25sg577akjfvfj5pij9.apps.googleusercontent.com";
@@ -92,8 +87,8 @@ function User(){
             { loginData ? (
                 <div style={cardStyle}>
                     <img style={imgStyle} src={loginData.picture} alt="ProfilePicture"/>
-                    <div style={descriptionText}><AiOutlineUser/> {loginData.name}</div>
-                    <div style={descriptionText}><AiOutlineMail/> {loginData.email}</div>
+                    <div  style={{color:"white",fontSize:"large",marginTop:"15px"}}>Hi,</div>
+                    <div style={descriptionText}>{loginData.name}</div>
                     <div style={{paddingTop:"2vh",paddingBottom:"2vh"}}>
                         <GoogleLogout
                             clientId={clientId}
