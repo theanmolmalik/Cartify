@@ -48,6 +48,14 @@ const hLine = {
     margin:"auto"
 }
 
+const totalStyle = {
+    padding: "3vh 5vh 3vh 0",
+    fontWeight:"bold",
+    textAlign:"right",
+    color:"#28282B",
+    fontSize:"25px"
+}
+
 function isCartEmpty() {
     if(itemCount===0)
     {
@@ -107,7 +115,7 @@ function isCartEmpty() {
 
                 <div style={hLine}></div>
 
-                <div style={{padding: "3vh 5vh 3vh 0",fontWeight:"bold",textAlign:"right",color:"#28282B",fontSize:"x-large"}}>
+                <div style={totalStyle}>
                     Total: ₹3700 (3 items)
                 </div>
 
