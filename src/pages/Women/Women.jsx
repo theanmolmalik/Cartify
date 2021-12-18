@@ -21,7 +21,7 @@ function Women()
     const [products, setProducts]=useState([]) 
     
     const getData = async() => {
-      const data = await  axios.get('http://localhost:4000/products');
+      const data = await  axios.get('https://cartify-ecommerce-backend.herokuapp.com/products');
       setProducts(data.data);
 
     }
