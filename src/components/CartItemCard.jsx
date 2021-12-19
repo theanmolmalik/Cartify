@@ -28,10 +28,10 @@ function CartItemCard(parameter)
             <div style={cardStyle}>
             <img style={imgStyle}src={parameter.img} alt="avatarImage"/>
             <div>{parameter.name}</div>
-            <div>{parameter.price}</div>
+            <div>₹{parameter.price}</div>
             <div>     
                 <span><button style={buttonStyle}>+</button></span>
-                <span>{parameter.quantity}</span>
+                <span>1</span>
                 <span><button style={buttonStyle}>-</button></span>
             </div>
             </div>

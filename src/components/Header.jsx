@@ -2,7 +2,7 @@ import React from "react";
 import {BsCartFill} from "react-icons/bs";
 import {FaUserAlt} from "react-icons/fa";
 import {Link} from "react-router-dom";
-import itemCount from "./itemCount";
+import { useGlobalState } from "../pages/util/util";
 
 const headerItemStyle = {
     color: "white",
@@ -45,6 +45,9 @@ const cartNotification = {
 }
 
 function Header(){
+    const state = useGlobalState();
+  
+   
 
     return (
         <header style={headerStyle}>
@@ -65,8 +68,9 @@ function Header(){
            <span >
                 <Link to="/cart"><BsCartFill className="headerItemHover" style={{margin:"13px -10px 0 20px",color:"white"}}/></Link> 
 
-                <span className="notificationHover" style={cartNotification}>{itemCount.length}</span>
+                <span className="notificationHover" style={cartNotification}>{state.get().value.length}</span>
            </span>
+
 
             <Link to="/user"><FaUserAlt className="headerItemHover" style={{margin:"13px 25px 0 20px",padding:"0 10px 0 20px",color:"white"}}/></Link>
 

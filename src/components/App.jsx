@@ -7,6 +7,7 @@ import User from "../pages/User/User"
 import Men from "../pages/Men/Men";
 import Women from "../pages/Women/Women"
 import {Routes,Route} from "react-router-dom";
+import Checkout from "../pages/Checkout/Checkout";
 
 
 
@@ -20,6 +21,7 @@ function App(){
                 <Route path="/cart" element={<Cart/>}/>
                 <Route path="/men" element={<Men/>}/>
                 <Route path="/women" element={<Women/>}/>
+                <Route path="/checkout" element={<Checkout/>}/>
             </Routes>
             <Footer/>
         </div>

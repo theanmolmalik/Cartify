@@ -1,4 +1,5 @@
 import React,{useState} from "react";
+import  { useGlobalState } from "../pages/util/util";
 
 const cardStyle = {
     padding: "20px",
@@ -13,6 +14,7 @@ const imgStyle = {
 
 function Card(parameter)
 {
+    const state = useGlobalState();
     const [isMouseOver,setMouseOver] = useState(false);
     
     function handleMouseOver(){
@@ -22,11 +24,35 @@ function Card(parameter)
     function handleMouseOut(){
         setMouseOver(false);
     }
+    const order = {
+        image : parameter.image ,
+        name : parameter.name ,
+        price : parameter.price
+    }
+    
+  
+     const  addOrder = () => {
+         console.log("meow moew")
+         state.merge(order);
+         console.log(state.get().value);
+         if(localStorage.getItem('price')){
+             let arr = JSON.parse(localStorage.getItem('price'));
+             arr.push(parameter.price);
+             localStorage.setItem('price',JSON.stringify(arr));
 
+         }else{
+             let arr = [];
+             arr.push(parameter.price);
+             localStorage.setItem('price',JSON.stringify(arr));
+
+         }
+     }
+    console.log(state.get().value)
     return (
         <span style={cardStyle}>
             <img style={imgStyle} src={parameter.image}  alt="avatarImage"/>
-            <button className="cardButtonStyle" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} style={{backgroundColor : isMouseOver ? "white" :"#28282B",color:isMouseOver?"#28282B":"white"}}>ADD TO CART</button>
+            <button className="cardButtonStyle" onClick={addOrder}  onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} style={{backgroundColor : isMouseOver ? "white" :"#28282B",color:isMouseOver?"#28282B":"white"}}>ADD TO CART</button>
+            {/* <button onClick={addOrder}> I was called </button> */}
             <div>
                 <span>{parameter.name}</span>
                 <span style={{float:"right"}}>₹{parameter.price}</span>

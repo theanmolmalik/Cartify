@@ -44,7 +44,8 @@ function User(){
 
     const [isMouseOver,setMouseOver] = useState(false);
     const [loginData,setLoginData]=useState(localStorage.getItem('loginData')? JSON.parse(localStorage.getItem('loginData')): null);
-
+    /* const [user, setUser] = useState(); */
+    /* const [password , setPasswrd] = useState(); */
     const onLoginSuccess = async(googleData) => {
         console.log('Login Success:', googleData.profileObj);
         const res = await fetch('/api/google-login', {
@@ -81,6 +82,7 @@ function User(){
     }
 
     console.log(loginData);
+    /* console.log(user); */
 
     return(
         <div>
