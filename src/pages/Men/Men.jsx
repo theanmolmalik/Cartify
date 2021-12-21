@@ -21,7 +21,7 @@ function Men()
     const [products, setProducts]=useState([]) 
     
     const getData = async() => {
-      const data = await  axios.get('http://cartify-ecommerce-backend.herokuapp.com/products');
+      const data = await  axios.get('https://cartify-ecommerce-backend.herokuapp.com/products');
       setProducts(data.data);
     }
      useEffect(()=>{
