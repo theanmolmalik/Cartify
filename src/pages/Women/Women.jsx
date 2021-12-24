@@ -39,7 +39,7 @@ function Women()
                 <h1 style={headingStyle}>WOMEN</h1>
             </div>
 
-            {products.slice(9,18).map((product)=>{
+            {products.slice(9,17).map((product)=>{
             return (
                 <span style={itemStyle}>
                     <Card
