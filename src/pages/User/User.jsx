@@ -103,7 +103,7 @@ function User(){
 
             : (
                 <div style={cardStyle}>
-                    <p style={textStyle}>Log In as Admin</p>
+                    <p style={textStyle}>Log In</p>
 
                     <input style={upStyle} type="username" name="Username" id="Username" placeholder="Username"/>
                     <input style={upStyle} type="password" name="Password" id="Password" placeholder="Password"/>
