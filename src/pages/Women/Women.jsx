@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from "react";
 import Card from "../../components/Card"; 
 import axios from "axios";
+import LoadingSpinner from "../Spinner/LoadingSpinner";
 
 const headingStyle = {
     paddingTop:"5vh",
@@ -18,41 +19,50 @@ const itemStyle={
 
 function Women()
 {
-    const [products, setProducts]=useState([]) 
+    const [products, setProducts]=useState([]);
+    const [done,setDone]=useState(undefined);
     
     const getData = async() => {
-      const data = await  axios.get('https://cartify-ecommerce-backend.herokuapp.com/products');
+      const data = await  axios.get('');
       setProducts(data.data);
-
     }
-    useEffect(()=>{
-    getData();
-    },[]);
+     useEffect(()=>{
+       getData();
+     },[]);
 
-    console.log(products);
+    useEffect(() => {
+        setTimeout(() => {
+          fetch("https://cartify-ecommerce-backend.herokuapp.com/products")
+            .then((response) => response.json())
+            .then((json) => {
+              setProducts(json);
+              setDone(true);
+            });
+        }, 2000);
+      }, []);
 
     return (
         <div>
-        {products ?  
-            <> 
-            <div>
-                <h1 style={headingStyle}>WOMEN</h1>
-            </div>
+            {done ?  
+                <> 
+                <div>
+                    <h1 style={headingStyle}>MEN</h1>
+                </div>
 
-            {products.slice(9,18).map((product)=>{
-            return (
-                <span style={itemStyle}>
-                    <Card
-                        image={product.image}
-                        name={product.name}
-                        price={product.price}
-                    />
-                </span>
-            );})}
-            </>
-        : <> Loading </> 
-        }
-    </div>
+                {products.slice(9,18).map((product)=>{
+                return (
+                    <span style={itemStyle}>
+                        <Card
+                            image={product.image}
+                            name={product.name}
+                            price={product.price}
+                        />
+                    </span>
+                );})}
+                </>
+            : <LoadingSpinner/>
+            }
+        </div>
     );
 }
 

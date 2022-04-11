@@ -85,63 +85,56 @@ function Cart(){
 
     if(state.get().value.length === 0){
         return(
-            <>
-                   <div>
-                <h1 style={headingStyle}>CART</h1>
+            <div>
+            <h1 style={headingStyle}>CART</h1>
 
-                <h1 style={emptyCart}>Your Cart is empty!</h1>
-            </div>
-            </>
+            <h1 style={emptyCart}>Your Cart is empty!</h1>
+            </div> 
         )
     }
 
-    console.log(price());
 
     return (
        
         <div>
-        <h1 style={headingStyle}>CART</h1>
+            <h1 style={headingStyle}>CART</h1>
 
-        <div style={cartSectionStyle}>
-            <p>You have <span style={{fontWeight:"bold"}}>{state.get().value.length}</span> Items in your Cart</p>
-        </div> 
+            <div style={cartSectionStyle}>
+                <p>You have <span style={{fontWeight:"bold"}}>{state.get().value.length}</span> Items in your Cart</p>
+            </div> 
 
-        <div style={hLine}></div>
+            <div style={hLine}></div>
 
-        <div style={headStyle}>
-            <div>IMAGE</div>
-            <div>NAME</div>
-            <div>PRICE</div>
-            <div>Quantity</div>
+            <div style={headStyle}>
+                <div>IMAGE</div>
+                <div>NAME</div>
+                <div>PRICE</div>
+                <div>Quantity</div>
+            </div>
+
+            <div style={hLine}></div>
+
+            <div style={itemStyle}>
+                {
+                    state.get().value.map(x=>(
+                        <CartItemCard
+                            img={x.data.image}
+                            name={x.data.name}
+                            price={x.data.price}
+                        />
+                    ))
+                }
+            </div>
+        
+
+            <div style={hLine}></div>
+
+            <div style={totalStyle}>
+            ₹{price()}
+            </div>
+
+            <button style={checkoutButton}><Link to="/checkout" style={{textDecoration: "none",color:"white",cursor:"pointer",borderColor: "white"}}>CHECKOUT</Link></button>
         </div>
-
-        <div style={hLine}></div>
-
-        <div style={itemStyle}>
-            {
-                state.get().value.map(x=>(
-                    <CartItemCard
-                        img={x.data.image}
-                        name={x.data.name}
-                        price={x.data.price}
-                    />
-                ))
-            }
-        </div>
-    
-
-        <div style={hLine}></div>
-
-        <div style={totalStyle}>
-        ₹{price()}
-        </div>
-
-        <button style={checkoutButton}><Link to="/checkout" style={{textDecoration: "none",color:"white",cursor:"pointer",borderColor: "white"}}>CHECKOUT</Link></button>
-
-
-    </div>
-
-       
     );
 }
 

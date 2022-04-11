@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from "react";
 import Card from "../../components/Card"; 
 import axios from "axios";
+import LoadingSpinner from "../Spinner/LoadingSpinner";
 
 const headingStyle = {
     paddingTop:"5vh",
@@ -16,22 +17,36 @@ const itemStyle={
     padding: "2vh 5vh"
 }
 
+//https://cartify-ecommerce-backend.herokuapp.com/products;
+
 function Men()
 {
-    const [products, setProducts]=useState([]) 
+    const [products, setProducts]=useState([]);
+    const [done,setDone]=useState(undefined);
     
     const getData = async() => {
-      const data = await  axios.get('https://cartify-ecommerce-backend.herokuapp.com/products');
+      const data = await  axios.get('');
       setProducts(data.data);
     }
      useEffect(()=>{
        getData();
      },[]);
 
+    useEffect(() => {
+        setTimeout(() => {
+          fetch("https://cartify-ecommerce-backend.herokuapp.com/products")
+            .then((response) => response.json())
+            .then((json) => {
+              setProducts(json);
+              setDone(true);
+            });
+        }, 2000);
+      }, []);
+
     return (
 
         <div>
-            {products ?  
+            {done ?  
                 <> 
                 <div>
                     <h1 style={headingStyle}>MEN</h1>
@@ -48,7 +63,7 @@ function Men()
                     </span>
                 );})}
                 </>
-            : <> Loading </> 
+            : <LoadingSpinner/>
             }
         </div>
     );
