@@ -38,7 +38,7 @@ function Women()
               setProducts(json);
               setDone(true);
             });
-        }, 1000);
+        }, 100);
       }, []);
 
     return (

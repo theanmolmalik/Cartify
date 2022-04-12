@@ -40,7 +40,7 @@ function Men()
               setProducts(json);
               setDone(true);
             });
-        }, 1000);
+        }, 100);
       }, []);
 
     return (
