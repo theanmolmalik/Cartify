@@ -56,9 +56,9 @@ function Header(){
             
             <div>
 
-            <Link to="/women" className="headerItemHover" style={headerItemStyle}>TRENDING</Link>
+            <Link to="/trending" className="headerItemHover" style={headerItemStyle}>TRENDING</Link>
 
-            <Link to="/men" className="headerItemHover" style={headerItemStyle}>CLASSIC</Link>
+            <Link to="/classic" className="headerItemHover" style={headerItemStyle}>CLASSIC</Link>
 
             <Link to="/" className="headerItemHover" style={headerItemStyle}>HOME</Link> 
            

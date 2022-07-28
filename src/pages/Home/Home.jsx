@@ -32,7 +32,7 @@ function Home(){
                 <h4 style={{color:"white"}}>Get the best offers of Winterwear</h4>
                 <h1>40% - 70% OFF</h1>
             </div>
-                <Link to="/men"><img src="https://images.pexels.com/photos/5868722/pexels-photo-5868722.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Men Shopping"/></Link>
+                <Link to="/classic"><img src="https://images.pexels.com/photos/5868722/pexels-photo-5868722.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Men Shopping"/></Link>
             </div>
 
             <div style={head2Style}>
@@ -42,7 +42,7 @@ function Home(){
             </div>
 
             <div style={{marginTop:"-1vh",marginBottom:"-1vh",transform: "scaleX(-1)",zIndex:"-1"}}>
-                <Link to="/women"><img src="https://images.pexels.com/photos/5868278/pexels-photo-5868278.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="menPage"/></Link>
+                <Link to="/trending"><img src="https://images.pexels.com/photos/5868278/pexels-photo-5868278.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="menPage"/></Link>
             </div>
 
         </div>
