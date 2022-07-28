@@ -49,7 +49,7 @@ function Men()
             {done ?  
                 <> 
                 <div>
-                    <h1 style={headingStyle}>MEN</h1>
+                    <h1 style={headingStyle}>CLASSIC</h1>
                 </div>
 
                 {products.slice(0,9).map((product)=>{
