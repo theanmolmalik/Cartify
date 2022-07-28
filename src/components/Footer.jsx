@@ -10,16 +10,16 @@ const footerStyle = {
     textAlign: "center",
     flexDirection: "column",
     borderRadius:"5px 5px 0px 0px"
-}
+};
 
 const logoStyle = {
     paddingTop: "3vh"
-}
+};
 
 const copyrightStyle = {
     fontSize: "larger", 
     paddingBottom: "3vh"
-}
+};
 
 function Footer(){
     

@@ -2,46 +2,54 @@ import React from "react";
 import CartItemCard from "../../components/CartItemCard";
 import { useGlobalState } from "../util/util";
 import {Link} from "react-router-dom";
+import { useAuth0 } from '@auth0/auth0-react';
+
+const descriptionText = {
+    fontSize:"xx-large",
+    padding:"5vh 5vh 0 5vh",
+};
+
 
 const cartSectionStyle = {
     padding:"5vh",
     color: "#28282B",
     fontSize:"large",
-}
+};
 
 const headingStyle = {
     paddingTop:"5vh",
     marginTop:"5vh",
     textAlign:"center",
     color: "#28282B",
-}
+};
 
 const emptyCart = {
     margin:"20vh 10vh 40vh 10vh",
     textAlign:"center",
     fontSize:"50px",
     color: "#28282B",
-}
+};
 
 const itemStyle={
-    padding:"5vh 15vh"
-}
+    padding:"5% 12%"
+};
 
 const headStyle = {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-around",
     textAlign: "center",
-    padding: "2vh",
+    padding: "2%",
     fontWeight:"bold"
-}
+    
+};
 
 const hLine = {
     width:"95%",
     height:"3px",
     background: "#28282B",
     margin:"auto"
-}
+};
 
 const totalStyle = {
     padding: "3vh 22vh 3vh 0",
@@ -49,7 +57,7 @@ const totalStyle = {
     textAlign:"right",
     color:"#28282B",
     fontSize:"25px"
-}
+};
 
 const checkoutButton = {
     padding:"1vh 2vh 1vh 2vh",
@@ -63,14 +71,17 @@ const checkoutButton = {
     color:"white",
     overflow: "hidden",
     borderRadius:"10px",
-}
+    borderColor:"white",
+    cursor:"pointer"
+};
 
 function Cart(){
     const state = useGlobalState();
+    const { user,isAuthenticated } = useAuth0();
     
     const price = () => {
         let price = 0;
-      const items = JSON.parse(localStorage.getItem('price'))  ;
+      const items = JSON.parse(localStorage.getItem('price'));
       items.reverse();
       for(var i=0 ;i<state.get().value.length ;i++){
           console.log(items[i]);
@@ -78,10 +89,7 @@ function Cart(){
       }          
     
           return price;
-        }
-    
-        /* var count = {}; */
-      
+        };
 
     if(state.get().value.length === 0){
         return(
@@ -98,7 +106,8 @@ function Cart(){
        
         <div>
             <h1 style={headingStyle}>CART</h1>
-
+            {!isAuthenticated && <p style={descriptionText}>Sign in to Checkout</p>}
+            {isAuthenticated && <div style={descriptionText}>Hi, {user.name}</div>}
             <div style={cartSectionStyle}>
                 <p>You have <span style={{fontWeight:"bold"}}>{state.get().value.length}</span> Items in your Cart</p>
             </div> 
@@ -109,7 +118,7 @@ function Cart(){
                 <div>IMAGE</div>
                 <div>NAME</div>
                 <div>PRICE</div>
-                <div>Quantity</div>
+                {/* <div>Quantity</div> */}
             </div>
 
             <div style={hLine}></div>
@@ -129,11 +138,10 @@ function Cart(){
 
             <div style={hLine}></div>
 
-            <div style={totalStyle}>
-            ₹{price()}
+            <div style={totalStyle}>₹{price()}
             </div>
 
-            <button style={checkoutButton}><Link to="/checkout" style={{textDecoration: "none",color:"white",cursor:"pointer",borderColor: "white"}}>CHECKOUT</Link></button>
+            {isAuthenticated && <button style={checkoutButton}><Link to="/checkout" style={{textDecoration: "none",color:"white",cursor:"pointer",borderColor: "white"}}>CHECKOUT</Link></button>}
         </div>
     );
 }

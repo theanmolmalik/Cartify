@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@auth0/auth0-react": "^1.10.2",
     "@hookstate/core": "^3.0.13",
     "@reduxjs/toolkit": "^1.7.1",
     "@testing-library/jest-dom": "^5.11.4",
@@ -21,7 +22,7 @@
     "react-loading": "^2.0.3",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.0.2",
-    "react-scripts": "^5.0.0",
+    "react-scripts": "^5.0.1",
     "redux": "^4.1.2",
     "web-vitals": "^1.0.1"
   },
